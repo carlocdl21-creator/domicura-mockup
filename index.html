@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Domicura — Mockup Interfacce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquoise:#0FB5AD;
+    --turquoise-deep:#0A8C86;
+    --turquoise-soft:#D6F4F1;
+    --blue:#1E63D6;
+    --blue-deep:#0C2A4D;
+    --navy:#0A2540;
+    --pink:#FF6FA5;
+    --pink-soft:#FFE3ED;
+    --white:#FFFFFF;
+    --mist:#EEF6F7;
+    --ink:#102A43;
+    --ink-soft:#5B7186;
+    --line:#E2ECEE;
+    --radius:22px;
+    --shadow-sm:0 4px 14px rgba(10,37,64,.06);
+    --shadow-md:0 18px 50px rgba(10,37,64,.12);
+    --shadow-lg:0 30px 80px rgba(10,37,64,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Hanken Grotesk',sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(15,181,173,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 30%, rgba(30,99,214,.12), transparent 55%),
+      radial-gradient(700px 700px at 100% 100%, rgba(255,111,165,.10), transparent 60%),
+      #F3F8F9;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  h1,h2,h3,h4,.display{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;line-height:1.05}
+
+  /* ===== PRESENTATION HEADER ===== */
+  .topbar{padding:60px 0 30px}
+  .brandline{display:flex;align-items:center;gap:12px;margin-bottom:30px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:24px;color:var(--navy)}
+  .logo .mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--turquoise),var(--blue));display:grid;place-items:center;box-shadow:0 6px 16px rgba(15,181,173,.4)}
+  .logo .mark svg{width:19px;height:19px}
+  .tag{margin-left:auto;font-size:13px;font-weight:600;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 14px;border-radius:999px}
+  .topbar h1{font-size:clamp(34px,5vw,56px);font-weight:800;color:var(--navy);max-width:760px}
+  .topbar h1 em{font-style:normal;color:var(--turquoise-deep);position:relative}
+  .topbar p{margin-top:18px;font-size:18px;color:var(--ink-soft);max-width:620px}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .legend span{font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);display:flex;align-items:center;gap:7px}
+  .legend i{width:9px;height:9px;border-radius:3px;display:inline-block}
+
+  /* ===== SECTION SCAFFOLD ===== */
+  section.screen{padding:46px 0;border-top:1px solid rgba(226,236,238,.7)}
+  .screen-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:34px;flex-wrap:wrap}
+  .screen-num{font-family:'Bricolage Grotesque';font-weight:800;font-size:15px;color:#fff;background:var(--navy);min-width:42px;height:42px;border-radius:13px;display:grid;place-items:center;flex-shrink:0}
+  .screen-meta h2{font-size:27px;font-weight:700;color:var(--navy)}
+  .screen-meta p{margin-top:6px;font-size:15.5px;color:var(--ink-soft);max-width:680px}
+  .pitchnote{margin-left:auto;max-width:300px;font-size:13.5px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-left:3px solid var(--pink);padding:14px 16px;border-radius:0 14px 14px 0;box-shadow:var(--shadow-sm)}
+  .pitchnote b{color:var(--navy)}
+
+  /* ===== PHONE FRAME ===== */
+  .phone{
+    width:320px;background:#0A2540;border-radius:42px;padding:11px;
+    box-shadow:var(--shadow-lg),inset 0 0 0 2px rgba(255,255,255,.06);
+    flex-shrink:0;position:relative;
+  }
+  .phone .notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#0A2540;border-radius:0 0 16px 16px;z-index:6}
+  .phone .scr{background:var(--white);border-radius:32px;overflow:hidden;height:680px;position:relative;display:flex;flex-direction:column}
+  .statusbar{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 6px;font-size:12px;font-weight:700;color:var(--navy);flex-shrink:0}
+  .statusbar .icons{display:flex;gap:5px;align-items:center}
+  .statusbar .icons svg{width:15px;height:15px}
+
+  /* phone rows / layout */
+  .scroll{overflow:hidden;flex:1;display:flex;flex-direction:column}
+
+  /* ===== BROWSER FRAME ===== */
+  .browser{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-md);border:1px solid var(--line);width:100%}
+  .browser .chrome{background:#F4F8F9;border-bottom:1px solid var(--line);padding:13px 18px;display:flex;align-items:center;gap:14px}
+  .dots{display:flex;gap:7px}
+  .dots i{width:11px;height:11px;border-radius:50%;display:block}
+  .urlbar{flex:1;background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 14px;font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
+  .urlbar svg{width:13px;height:13px;color:var(--turquoise-deep)}
+
+  /* utility */
+  .chip{font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-soft);white-space:nowrap;cursor:pointer;transition:.2s}
+  .chip.active{background:var(--turquoise);color:#fff;border-color:var(--turquoise)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Hanken Grotesk';font-weight:700;font-size:14px;padding:13px 18px;border-radius:14px;border:none;cursor:pointer;transition:.2s}
+  .btn-primary{background:linear-gradient(135deg,var(--turquoise),var(--blue));color:#fff;box-shadow:0 10px 24px rgba(30,99,214,.28)}
+  .btn-ghost{background:var(--mist);color:var(--navy)}
+  .avatar{border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;font-family:'Bricolage Grotesque';flex-shrink:0}
+  .stars{color:var(--pink);letter-spacing:1px;font-size:13px}
+
+  /* mini map */
+  .map{position:relative;background:linear-gradient(135deg,#E8F3F2,#DCEAF6);overflow:hidden}
+  .map .road{position:absolute;background:#fff;border-radius:6px}
+  .map .road.v{width:7px}
+  .map .road.h{height:7px}
+  .map .park{position:absolute;background:rgba(15,181,173,.16);border-radius:14px}
+  .pin{position:absolute;transform:translate(-50%,-100%)}
+  .pin .head{width:26px;height:26px;border-radius:50% 50% 50% 2px;transform:rotate(45deg);box-shadow:0 6px 12px rgba(10,37,64,.25);display:grid;place-items:center}
+  .pulse{position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(30,99,214,.16);transform:translate(-50%,-50%);animation:pulse 2.4s infinite ease-out}
+  .pulse:after{content:'';position:absolute;inset:30px;border-radius:50%;background:rgba(30,99,214,.3)}
+  @keyframes pulse{0%{transform:translate(-50%,-50%) scale(.5);opacity:.9}100%{transform:translate(-50%,-50%) scale(1.6);opacity:0}}
+
+  .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:26px 26px 0 0;box-shadow:0 -14px 40px rgba(10,37,64,.16);padding:18px 20px 22px}
+  .grab{width:42px;height:5px;border-radius:5px;background:#D5E1E5;margin:0 auto 16px}
+
+  /* device row */
+  .devices{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;justify-content:center}
+  .device-cap{text-align:center;max-width:320px}
+  .device-cap .lbl{margin-top:16px;font-weight:700;color:var(--navy);font-size:14.5px}
+  .device-cap .sub{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  /* fade-in */
+  .fx{opacity:0;transform:translateY(26px);animation:rise .8s forwards cubic-bezier(.2,.7,.2,1)}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  footer{padding:60px 0 80px;text-align:center;color:var(--ink-soft);font-size:13.5px}
+  footer .logo{justify-content:center;margin-bottom:14px}
+
+  @media(max-width:720px){
+    .pitchnote{margin-left:0;max-width:none}
+    .phone{transform:scale(.92);transform-origin:top center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<div class="topbar wrap">
+  <div class="brandline">
+    <div class="logo">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/><path d="M9 11h2V9h2v2h2v2h-2v2h-2v-2H9v-2Z" fill="#0FB5AD"/></svg></span>
+      Domicura
+    </div>
+    <span class="tag">🏥 Mockup interfacce · v1</span>
+  </div>
+  <h1>La cura a domicilio, <em>schermata per schermata</em>.</h1>
+  <div class="hero-pills">
+    <span>⚡ Professionista in 30 minuti</span>
+    <span>🛡️ Solo verificati · Albo, RC, P.IVA</span>
+    <span>🧾 Prezzo chiaro e ricevuta fiscale</span>
+    <span>🔁 Prestazioni singole e percorsi di cura</span>
+  </div>
+</div>
+
+<!-- ============ 01 — LANDING ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">01</div>
+    <div class="screen-meta">
+      <h2>Homepage — il punto d'ingresso</h2>
+      <p>La prima cosa che vede chi cerca "infermiere domicilio Milano". Una sola promessa, una sola azione: seleziona il servizio, inserisci l'indirizzo, parte il matching.</p>
+    </div>
+    <div class="pitchnote">La <b>search bar</b> è il cuore della conversione: replica la frizione-zero di Uber. Niente call center, niente liste d'attesa.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>domicura.it</div>
+    </div>
+    <!-- site nav -->
+    <div style="display:flex;align-items:center;gap:26px;padding:18px 34px;border-bottom:1px solid var(--line)">
+      <div class="logo" style="font-size:20px"><span class="mark" style="width:30px;height:30px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/><path d="M9 11h2V9h2v2h2v2h-2v2h-2v-2H9v-2Z" fill="#0FB5AD"/></svg></span>Domicura</div>
+      <div style="display:flex;gap:24px;font-size:14px;font-weight:600;color:var(--ink-soft);margin-left:14px">
+        <span>Come funziona</span><span>Servizi</span><span>Per professionisti</span><span>Abbonamenti</span>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+        <span style="font-size:14px;font-weight:600;color:var(--navy)">Accedi</span>
+        <button class="btn btn-primary" style="padding:11px 18px">Prenota ora</button>
+      </div>
+    </div>
+    <!-- hero -->
+    <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:30px;padding:48px 34px 40px;align-items:center">
+      <div>
+        <span style="font-size:13px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 13px;border-radius:999px">● Disponibile ora a Milano</span>
+        <h2 style="font-size:42px;font-weight:800;color:var(--navy);margin:18px 0 14px;line-height:1.02">Un professionista sanitario a casa tua in <span style="color:var(--turquoise-deep)">30 minuti</span>.</h2>
+        <p style="font-size:16px;color:var(--ink-soft);max-width:440px">Infermieri, fisioterapisti e medici verificati. Prezzo trasparente prima di prenotare, pagamento tracciato, ricevuta fiscale automatica.</p>
+        <!-- search -->
+        <div style="margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px;display:flex;gap:8px;box-shadow:var(--shadow-md)">
+          <div style="flex:1;padding:8px 12px">
+            <div style="font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em">Di cosa hai bisogno</div>
+            <div style="font-weight:700;color:var(--navy);font-size:14px;margin-top:2px">Prelievo del sangue</div>
+          </div>
+          <div style="width:1px;background:var(--line)"></div>
+          <div style="flex:1;padding:8px 12px">
+            <div style="font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em">Dove</div>
+            <div style="font-weight:700;color:var(--navy);font-size:14px;margin-top:2px">Via Tortona 12, Milano</div>
+          </div>
+          <button class="btn btn-primary" style="border-radius:13px">Cerca →</button>
+        </div>
+        <div style="display:flex;gap:22px;margin-top:24px;font-size:13px;color:var(--ink-soft)">
+          <span><b style="color:var(--navy);font-family:Bricolage Grotesque">4,9★</b> rating medio</span>
+          <span><b style="color:var(--navy);font-family:Bricolage Grotesque">85+</b> professionisti</span>
+          <span><b style="color:var(--navy);font-family:Bricolage Grotesque">RC</b> assicurati</span>
+        </div>
+      </div>
+      <!-- hero map card -->
+      <div style="position:relative">
+        <div class="map" style="height:300px;border-radius:22px;box-shadow:var(--shadow-md)">
+          <div class="road v" style="left:60px;top:0;bottom:0"></div>
+          <div class="road v" style="left:230px;top:0;bottom:0"></div>
+          <div class="road h" style="top:90px;left:0;right:0"></div>
+          <div class="road h" style="top:210px;left:0;right:0"></div>
+          <div class="park" style="left:90px;top:110px;width:120px;height:80px"></div>
+          <div class="pulse" style="left:48%;top:50%"></div>
+          <div class="pin" style="left:48%;top:50%"><div class="head" style="background:var(--blue)"><svg style="transform:rotate(-45deg);width:13px;height:13px" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div></div>
+          <div class="pin" style="left:25%;top:30%"><div class="head" style="background:var(--turquoise)"></div></div>
+          <div class="pin" style="left:72%;top:64%"><div class="head" style="background:var(--turquoise)"></div></div>
+          <div class="pin" style="left:80%;top:28%"><div class="head" style="background:var(--pink)"></div></div>
+        </div>
+        <div style="position:absolute;bottom:-16px;left:16px;background:#fff;border-radius:14px;padding:12px 14px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:10px">
+          <div class="avatar" style="width:38px;height:38px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:14px">GM</div>
+          <div><div style="font-weight:700;font-size:13px;color:var(--navy)">Giulia M. · Infermiera</div><div style="font-size:12px;color:var(--ink-soft)">a 1,2 km · arriva tra ~22 min</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- how it works strip -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:10px 34px 40px">
+      <div style="background:var(--mist);border-radius:16px;padding:18px"><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--turquoise-deep);font-size:13px">01</div><div style="font-weight:700;color:var(--navy);margin-top:6px">Prenoti</div><div style="font-size:13px;color:var(--ink-soft);margin-top:3px">Servizio + indirizzo. Prezzo subito visibile.</div></div>
+      <div style="background:var(--mist);border-radius:16px;padding:18px"><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--turquoise-deep);font-size:13px">02</div><div style="font-weight:700;color:var(--navy);margin-top:6px">Ti abbiniamo</div><div style="font-size:13px;color:var(--ink-soft);margin-top:3px">Matching geolocalizzato col più vicino disponibile.</div></div>
+      <div style="background:var(--mist);border-radius:16px;padding:18px"><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--turquoise-deep);font-size:13px">03</div><div style="font-weight:700;color:var(--navy);margin-top:6px">Arriva a casa</div><div style="font-size:13px;color:var(--ink-soft);margin-top:3px">Tracking live, paghi in app, ricevi la ricevuta.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02–03 — APP: richiesta + matching ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">02</div>
+    <div class="screen-meta">
+      <h2>App paziente — richiesta & matching</h2>
+      <p>Il catalogo di 43 servizi ridotto a poche scelte chiare. Tre figure professionali coprono ~95% della GMV: il prodotto le mette in primo piano.</p>
+    </div>
+    <div class="pitchnote">Il toggle <b>"Subito / Programma"</b> è il differenziatore vs Doctolib: noi vendiamo l'urgenza domiciliare, non l'appuntamento ambulatoriale tra giorni.</div>
+  </div>
+
+  <div class="devices">
+    <!-- PHONE A: selezione servizio -->
+    <div class="device-cap">
+      <div class="phone fx" style="animation-delay:.05s">
+        <div class="notch"></div>
+        <div class="scr">
+          <div class="statusbar">9:41<span class="icons"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm5-3h2v7H7zm5-4h2v11h-2zm5-5h2v16h-2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C7 4 3 8 2 11c1 3 5 7 10 7s9-4 10-7c-1-3-5-7-10-7Zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2"/><rect x="21" y="10" width="2" height="4"/></svg></span></div>
+          <div class="scroll" style="padding:8px 20px">
+            <div style="font-size:13px;color:var(--ink-soft);font-weight:600">Buongiorno, Laura 👋</div>
+            <h3 style="font-size:24px;font-weight:800;color:var(--navy);margin-top:2px">Di cosa hai<br>bisogno oggi?</h3>
+            <!-- toggle -->
+            <div style="display:flex;background:var(--mist);border-radius:13px;padding:4px;margin-top:18px">
+              <div style="flex:1;text-align:center;background:#fff;border-radius:10px;padding:9px;font-weight:700;font-size:13px;color:var(--navy);box-shadow:var(--shadow-sm)">⚡ Subito</div>
+              <div style="flex:1;text-align:center;padding:9px;font-weight:600;font-size:13px;color:var(--ink-soft)">📅 Programma</div>
+            </div>
+            <!-- category chips -->
+            <div style="display:flex;gap:8px;margin-top:18px;overflow:hidden">
+              <span class="chip active">Infermiere</span><span class="chip">Fisio</span><span class="chip">Medico</span>
+            </div>
+            <!-- service list -->
+            <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">
+              <div style="border:1.5px solid var(--turquoise);background:var(--turquoise-soft);border-radius:16px;padding:13px 14px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;border-radius:12px;background:#fff;display:grid;place-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A8C86" stroke-width="2"><path d="M9 3h6v4l-3 3-3-3V3Z"/><path d="M12 10v8a3 3 0 0 0 6 0v-2"/></svg></div>
+                <div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Prelievo del sangue</div><div style="font-size:12px;color:var(--ink-soft)">20–30 min · referto digitale</div></div>
+                <div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy)">35–55€</div>
+              </div>
+              <div style="border:1px solid var(--line);border-radius:16px;padding:13px 14px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;border-radius:12px;background:var(--mist);display:grid;place-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B7186" stroke-width="2"><path d="M8 4v6m0 0a4 4 0 0 0 8 0V4M8 16h8"/></svg></div>
+                <div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Medicazione ferita</div><div style="font-size:12px;color:var(--ink-soft)">30–45 min · post-operatorio</div></div>
+                <div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy)">40–60€</div>
+              </div>
+              <div style="border:1px solid var(--line);border-radius:16px;padding:13px 14px;display:flex;align-items:center;gap:12px">
+                <div style="width:40px;height:40px;border-radius:12px;background:var(--mist);display:grid;place-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B7186" stroke-width="2"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div>
+                <div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Monitoraggio parametri</div><div style="font-size:12px;color:var(--ink-soft)">PA · FC · SpO₂ · glicemia</div></div>
+                <div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy)">35–55€</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:14px 20px 22px;border-top:1px solid var(--line)"><button class="btn btn-primary" style="width:100%">Continua · Prelievo del sangue</button></div>
+        </div>
+      </div>
+      <div class="lbl">Selezione del servizio</div>
+      <div class="sub">Catalogo guidato, prezzo trasparente già in lista</div>
+    </div>
+
+    <!-- PHONE B: matching -->
+    <div class="device-cap">
+      <div class="phone fx" style="animation-delay:.18s">
+        <div class="notch"></div>
+        <div class="scr">
+          <div class="statusbar" style="position:absolute;z-index:7;width:100%;color:var(--navy)">9:42<span class="icons"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm5-3h2v7H7zm5-4h2v11h-2zm5-5h2v16h-2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C7 4 3 8 2 11c1 3 5 7 10 7s9-4 10-7c-1-3-5-7-10-7Zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2"/><rect x="21" y="10" width="2" height="4"/></svg></span></div>
+          <div class="map" style="flex:1">
+            <div class="road v" style="left:80px;top:0;bottom:0"></div>
+            <div class="road v" style="left:220px;top:0;bottom:0"></div>
+            <div class="road h" style="top:160px;left:0;right:0"></div>
+            <div class="road h" style="top:340px;left:0;right:0"></div>
+            <div class="park" style="left:110px;top:190px;width:100px;height:120px"></div>
+            <div class="pulse" style="left:50%;top:42%"></div>
+            <div class="pin" style="left:50%;top:42%"><div class="head" style="background:var(--blue)"><svg style="transform:rotate(-45deg);width:12px;height:12px" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg></div></div>
+            <div class="pin" style="left:26%;top:24%"><div class="head" style="background:var(--turquoise)"></div></div>
+            <div class="pin" style="left:74%;top:58%"><div class="head" style="background:var(--turquoise)"></div></div>
+            <div class="pin" style="left:30%;top:66%"><div class="head" style="background:var(--turquoise)"></div></div>
+          </div>
+          <div class="sheet">
+            <div class="grab"></div>
+            <div style="display:flex;align-items:center;gap:13px">
+              <div style="width:46px;height:46px;border-radius:50%;border:3px solid var(--turquoise-soft);border-top-color:var(--turquoise);animation:spin 1s linear infinite"></div>
+              <div><div style="font-weight:800;font-size:16px;color:var(--navy)">Cerchiamo il più vicino…</div><div style="font-size:13px;color:var(--ink-soft)">3 professionisti nel raggio di 5 km</div></div>
+            </div>
+            <div style="margin-top:16px;background:var(--mist);border-radius:14px;padding:13px 14px;font-size:13px;color:var(--ink-soft)">
+              <div style="display:flex;justify-content:space-between"><span>Prelievo del sangue</span><b style="color:var(--navy)">48€</b></div>
+              <div style="display:flex;justify-content:space-between;margin-top:6px"><span>Via Tortona 12</span><span style="color:var(--turquoise-deep);font-weight:700">⚡ ora</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl">Matching geolocalizzato</div>
+      <div class="sub">&lt; 30 secondi · ordina per distanza + rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 — tracking ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">03</div>
+    <div class="screen-meta">
+      <h2>App paziente — professionista trovato & tracking live</h2>
+      <p>Lo "show, don't tell" della fiducia: foto, nome, albo, rating e posizione in tempo reale. Il paziente sa esattamente chi sta arrivando, esattamente quando.</p>
+    </div>
+    <div class="pitchnote">Lo SLA dei <b>30 minuti</b> è la metrica competitiva che le cooperative (24–72h di preavviso) non possono replicare senza infrastruttura digitale.</div>
+  </div>
+
+  <div class="devices">
+    <div class="device-cap">
+      <div class="phone fx" style="animation-delay:.05s">
+        <div class="notch"></div>
+        <div class="scr">
+          <div class="statusbar" style="position:absolute;z-index:7;width:100%">9:46<span class="icons"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm5-3h2v7H7zm5-4h2v11h-2zm5-5h2v16h-2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2"/><rect x="21" y="10" width="2" height="4"/></svg></span></div>
+          <div class="map" style="flex:1">
+            <div class="road v" style="left:90px;top:0;bottom:0"></div>
+            <div class="road h" style="top:230px;left:0;right:0"></div>
+            <div class="park" style="left:150px;top:90px;width:110px;height:90px"></div>
+            <!-- route -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 298 460" preserveAspectRatio="none"><path d="M70 90 C 70 200, 150 200, 150 320" stroke="#1E63D6" stroke-width="5" stroke-dasharray="3 9" stroke-linecap="round" fill="none"/></svg>
+            <div class="pin" style="left:23%;top:20%"><div class="head" style="background:var(--turquoise)"><svg style="transform:rotate(-45deg);width:12px;height:12px" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div></div>
+            <div class="pin" style="left:50%;top:70%"><div class="head" style="background:var(--blue)"><svg style="transform:rotate(-45deg);width:11px;height:11px" viewBox="0 0 24 24" fill="#fff"><path d="M3 11l18-7-7 18-2-7-9-4Z"/></svg></div></div>
+          </div>
+          <div class="sheet">
+            <div class="grab"></div>
+            <div style="display:flex;align-items:center;gap:10px;background:var(--turquoise-soft);border-radius:12px;padding:10px 14px;margin-bottom:14px">
+              <span style="font-size:20px">⚡</span><div><b style="color:var(--turquoise-deep)">Arriva tra 18 minuti</b><div style="font-size:12px;color:var(--ink-soft)">In viaggio · a 1,2 km da te</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:13px">
+              <div class="avatar" style="width:54px;height:54px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:18px">GM</div>
+              <div style="flex:1">
+                <div style="font-weight:800;font-size:16px;color:var(--navy)">Giulia Marchetti</div>
+                <div style="font-size:12.5px;color:var(--ink-soft)">Infermiera · OPI Milano n.4821</div>
+                <div style="margin-top:3px"><span class="stars">★★★★★</span> <span style="font-size:12px;color:var(--ink-soft)">4,9 · 312 prestazioni</span></div>
+              </div>
+              <span style="font-size:11px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:5px 9px;border-radius:8px">✓ Verified</span>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:16px">
+              <button class="btn btn-ghost" style="flex:1">📞 Chiama</button>
+              <button class="btn btn-ghost" style="flex:1">💬 Messaggio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl">Conferma & tracking</div>
+      <div class="sub">Posizione live · ETA · contatto diretto</div>
+    </div>
+
+    <!-- PHONE: payment + rating -->
+    <div class="device-cap">
+      <div class="phone fx" style="animation-delay:.18s">
+        <div class="notch"></div>
+        <div class="scr">
+          <div class="statusbar">10:24<span class="icons"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm5-3h2v7H7zm5-4h2v11h-2zm5-5h2v16h-2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2"/><rect x="21" y="10" width="2" height="4"/></svg></span></div>
+          <div class="scroll" style="padding:14px 20px">
+            <div style="text-align:center;padding:8px 0 4px">
+              <div style="width:60px;height:60px;border-radius:50%;background:var(--turquoise-soft);display:grid;place-items:center;margin:0 auto"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0A8C86" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+              <h3 style="font-size:21px;font-weight:800;color:var(--navy);margin-top:12px">Prestazione completata</h3>
+              <div style="font-size:13px;color:var(--ink-soft)">Pagamento addebitato · ricevuta inviata</div>
+            </div>
+            <!-- breakdown -->
+            <div style="background:var(--mist);border-radius:16px;padding:16px;margin-top:18px;font-size:13.5px">
+              <div style="display:flex;justify-content:space-between;color:var(--ink-soft)"><span>Prelievo del sangue</span><span style="color:var(--navy);font-weight:600">48,00€</span></div>
+              <div style="display:flex;justify-content:space-between;color:var(--ink-soft);margin-top:8px"><span>al professionista (80%)</span><span>38,40€</span></div>
+              <div style="display:flex;justify-content:space-between;color:var(--ink-soft);margin-top:8px"><span>servizio Domicura</span><span>9,60€</span></div>
+              <div style="height:1px;background:var(--line);margin:12px 0"></div>
+              <div style="display:flex;justify-content:space-between;font-weight:800;font-family:Bricolage Grotesque;color:var(--navy);font-size:16px"><span>Totale</span><span>48,00€</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px">
+              <div style="width:34px;height:22px;border-radius:5px;background:linear-gradient(135deg,#1E63D6,#0A2540)"></div>
+              <span style="font-size:13px;color:var(--navy);font-weight:600">•••• 4218</span>
+              <span style="margin-left:auto;font-size:12px;color:var(--turquoise-deep);font-weight:700">📄 Ricevuta fiscale</span>
+            </div>
+            <!-- rating -->
+            <div style="text-align:center;margin-top:20px">
+              <div style="font-size:14px;font-weight:700;color:var(--navy)">Com'è andata con Giulia?</div>
+              <div style="font-size:30px;letter-spacing:6px;margin-top:8px;color:var(--pink)">★★★★★</div>
+            </div>
+          </div>
+          <div style="padding:12px 20px 22px"><button class="btn btn-primary" style="width:100%">Invia valutazione</button></div>
+        </div>
+      </div>
+      <div class="lbl">Pagamento & rating bidirezionale</div>
+      <div class="sub">Split automatico · ricevuta · dato reputazionale</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 — dashboard familiare ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">04</div>
+    <div class="screen-meta">
+      <h2>Dashboard familiare — il figlio caregiver a distanza</h2>
+      <p>La risposta diretta a 1,2 milioni di italiani che gestiscono da remoto la salute di un genitore. Persona "La Figlia Manager": prenota, supervisiona, documenta — da un'altra città.</p>
+    </div>
+    <div class="pitchnote">Questo accesso multi-utente è la leva di <b>retention e LTV</b>: chi gestisce il genitore non abbandona la piattaforma quando il bisogno diventa ricorrente.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>app.domicura.it/famiglia</div>
+    </div>
+    <div style="display:grid;grid-template-columns:210px 1fr">
+      <!-- sidebar -->
+      <div style="background:var(--navy);padding:22px 16px;color:#fff;min-height:520px">
+        <div class="logo" style="color:#fff;font-size:18px;margin-bottom:26px"><span class="mark" style="width:28px;height:28px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/></svg></span>Domicura</div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600">
+          <span style="background:rgba(15,181,173,.22);color:#fff;padding:11px 13px;border-radius:11px">🏠 Panoramica</span>
+          <span style="color:#9DB4CC;padding:11px 13px">📅 Appuntamenti</span>
+          <span style="color:#9DB4CC;padding:11px 13px">📈 Parametri</span>
+          <span style="color:#9DB4CC;padding:11px 13px">📄 Documenti</span>
+          <span style="color:#9DB4CC;padding:11px 13px">💳 Pagamenti</span>
+        </div>
+        <div style="margin-top:30px;background:rgba(255,255,255,.06);border-radius:14px;padding:14px">
+          <div style="display:flex;align-items:center;gap:10px"><div class="avatar" style="width:38px;height:38px;background:linear-gradient(135deg,var(--pink),#C44D89);font-size:14px">RM</div><div><div style="font-size:13px;font-weight:700">Rosa Maria</div><div style="font-size:11px;color:#9DB4CC">Mamma · 78 anni</div></div></div>
+        </div>
+      </div>
+      <!-- main -->
+      <div style="padding:26px 30px">
+        <div style="display:flex;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink-soft);font-weight:600">Bentornata, Laura</div><h3 style="font-size:24px;font-weight:800;color:var(--navy)">La salute di Mamma</h3></div>
+          <button class="btn btn-primary" style="margin-left:auto">+ Prenota prestazione</button>
+        </div>
+        <!-- stat cards -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px">
+          <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:12px;color:var(--ink-soft);font-weight:600">Prossimo appuntamento</div><div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy);font-size:18px;margin-top:6px">Domani · 9:30</div><div style="font-size:12px;color:var(--turquoise-deep);font-weight:700;margin-top:2px">Fisioterapia geriatrica</div></div>
+          <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:12px;color:var(--ink-soft);font-weight:600">Prestazioni questo mese</div><div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy);font-size:18px;margin-top:6px">7 · 312€</div><div style="font-size:12px;color:var(--ink-soft);margin-top:2px">Abbonamento Famiglia Plus</div></div>
+          <div style="border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--pink-soft)"><div style="font-size:12px;color:#A23A6B;font-weight:600">Pressione · ultima rilevazione</div><div style="font-weight:800;font-family:Bricolage Grotesque;color:#8E2F5C;font-size:18px;margin-top:6px">128 / 82</div><div style="font-size:12px;color:#A23A6B;margin-top:2px">nella norma · ieri</div></div>
+        </div>
+        <!-- timeline -->
+        <div style="margin-top:22px;font-size:14px;font-weight:700;color:var(--navy)">Storico prestazioni</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 15px">
+            <div class="avatar" style="width:40px;height:40px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:13px">GM</div>
+            <div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Prelievo del sangue · Giulia M.</div><div style="font-size:12px;color:var(--ink-soft)">12 mag · referto disponibile</div></div>
+            <span class="stars">★★★★★</span><span style="font-weight:700;color:var(--navy);font-size:14px;margin-left:8px">48€</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 15px">
+            <div class="avatar" style="width:40px;height:40px;background:linear-gradient(135deg,var(--pink),#C44D89);font-size:13px">DF</div>
+            <div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Fisioterapia geriatrica · Davide F.</div><div style="font-size:12px;color:var(--ink-soft)">8 mag · ciclo 3 di 10</div></div>
+            <span class="stars">★★★★★</span><span style="font-weight:700;color:var(--navy);font-size:14px;margin-left:8px">85€</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 15px">
+            <div class="avatar" style="width:40px;height:40px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:13px">GM</div>
+            <div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Monitoraggio parametri · Giulia M.</div><div style="font-size:12px;color:var(--ink-soft)">4 mag · report al medico inviato</div></div>
+            <span class="stars">★★★★☆</span><span style="font-weight:700;color:var(--navy);font-size:14px;margin-left:8px">42€</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 — app professionista ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">05</div>
+    <div class="screen-meta">
+      <h2>App professionista — il lato supply</h2>
+      <p>La supply side è il collo di bottiglia n.1. Il prodotto deve dare al professionista lavoro qualificato, compenso chiaro e zero burocrazia. La richiesta in arrivo con timer da 90 secondi è il momento decisivo del matching.</p>
+    </div>
+    <div class="pitchnote">Mostrare il <b>compenso netto e la distanza</b> prima dell'accettazione massimizza il tasso di accettazione e riduce i no-show — fondamentale per lo SLA.</div>
+  </div>
+
+  <div class="devices">
+    <!-- incoming request -->
+    <div class="device-cap">
+      <div class="phone fx" style="animation-delay:.05s">
+        <div class="notch"></div>
+        <div class="scr" style="background:var(--navy)">
+          <div class="statusbar" style="color:#fff">9:42<span class="icons" style="color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm5-3h2v7H7zm5-4h2v11h-2zm5-5h2v16h-2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2"/><rect x="21" y="10" width="2" height="4"/></svg></span></div>
+          <div class="scroll" style="padding:20px;justify-content:center;align-items:stretch">
+            <div style="text-align:center;color:#fff;margin-bottom:18px">
+              <div style="font-size:13px;color:#9DB4CC;font-weight:600">Nuova richiesta</div>
+              <div style="font-size:46px;font-weight:800;font-family:Bricolage Grotesque;color:var(--turquoise)">0:84</div>
+              <div style="font-size:12px;color:#9DB4CC">accetta entro il tempo limite</div>
+            </div>
+            <div style="background:#fff;border-radius:22px;padding:20px">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:46px;height:46px;border-radius:13px;background:var(--turquoise-soft);display:grid;place-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A8C86" stroke-width="2"><path d="M9 3h6v4l-3 3-3-3V3Z"/><path d="M12 10v8a3 3 0 0 0 6 0v-2"/></svg></div>
+                <div><div style="font-weight:800;font-size:16px;color:var(--navy)">Prelievo del sangue</div><div style="font-size:12.5px;color:var(--ink-soft)">⚡ on-demand · ora</div></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px">
+                <div style="background:var(--mist);border-radius:12px;padding:11px 13px"><div style="font-size:11px;color:var(--ink-soft);font-weight:600">Distanza</div><div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy);font-size:17px">1,2 km</div></div>
+                <div style="background:var(--turquoise-soft);border-radius:12px;padding:11px 13px"><div style="font-size:11px;color:var(--turquoise-deep);font-weight:600">Tuo compenso</div><div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--turquoise-deep);font-size:17px">38,40€</div></div>
+              </div>
+              <div style="margin-top:12px;font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B7186" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 14 0c0 5.5-7 10-7 10Z"/></svg>Via Tortona 12, Milano · 6° piano</div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:16px">
+              <button class="btn" style="flex:1;background:rgba(255,255,255,.12);color:#fff">Rifiuta</button>
+              <button class="btn btn-primary" style="flex:2">Accetta richiesta ✓</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl">Richiesta in arrivo</div>
+      <div class="sub">Timer 90s · compenso e distanza in chiaro</div>
+    </div>
+
+    <!-- earnings/agenda -->
+    <div class="device-cap">
+      <div class="phone fx" style="animation-delay:.18s">
+        <div class="notch"></div>
+        <div class="scr">
+          <div class="statusbar">9:41<span class="icons"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm5-3h2v7H7zm5-4h2v11h-2zm5-5h2v16h-2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2"/><rect x="21" y="10" width="2" height="4"/></svg></span></div>
+          <div class="scroll" style="padding:8px 20px">
+            <div style="display:flex;align-items:center;gap:11px">
+              <div class="avatar" style="width:44px;height:44px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:15px">GM</div>
+              <div><div style="font-weight:800;font-size:16px;color:var(--navy)">Ciao Giulia</div><div style="font-size:12px;color:var(--turquoise-deep);font-weight:700">● Online · disponibile</div></div>
+              <div style="margin-left:auto;width:44px;height:26px;background:var(--turquoise);border-radius:14px;position:relative"><span style="position:absolute;right:3px;top:3px;width:20px;height:20px;background:#fff;border-radius:50%"></span></div>
+            </div>
+            <!-- earnings card -->
+            <div style="margin-top:18px;background:linear-gradient(135deg,var(--turquoise),var(--blue));border-radius:20px;padding:20px;color:#fff">
+              <div style="font-size:13px;opacity:.85;font-weight:600">Guadagni questa settimana</div>
+              <div style="font-size:34px;font-weight:800;font-family:Bricolage Grotesque;margin-top:4px">624,80€</div>
+              <div style="display:flex;gap:18px;margin-top:12px;font-size:12.5px;opacity:.92"><span>16 prestazioni</span><span>•</span><span>fatturazione automatica</span></div>
+            </div>
+            <div style="margin-top:18px;font-size:14px;font-weight:700;color:var(--navy)">Agenda di oggi</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 14px;align-items:center">
+                <div style="text-align:center;color:var(--turquoise-deep);font-weight:800;font-family:Bricolage Grotesque"><div style="font-size:16px">9:30</div></div>
+                <div style="width:1px;align-self:stretch;background:var(--line)"></div>
+                <div style="flex:1"><div style="font-weight:700;font-size:13.5px;color:var(--navy)">Medicazione · R. Maria</div><div style="font-size:12px;color:var(--ink-soft)">Via Savona 4 · 0,8 km</div></div>
+                <div style="font-weight:800;color:var(--navy);font-size:14px">44€</div>
+              </div>
+              <div style="display:flex;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 14px;align-items:center">
+                <div style="text-align:center;color:var(--ink-soft);font-weight:800;font-family:Bricolage Grotesque"><div style="font-size:16px">11:00</div></div>
+                <div style="width:1px;align-self:stretch;background:var(--line)"></div>
+                <div style="flex:1"><div style="font-weight:700;font-size:13.5px;color:var(--navy)">Prelievo · F. Conti</div><div style="font-size:12px;color:var(--ink-soft)">C.so Genova 18 · 1,5 km</div></div>
+                <div style="font-weight:800;color:var(--navy);font-size:14px">38€</div>
+              </div>
+              <div style="display:flex;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 14px;align-items:center;opacity:.7">
+                <div style="text-align:center;color:var(--ink-soft);font-weight:800;font-family:Bricolage Grotesque"><div style="font-size:16px">15:30</div></div>
+                <div style="width:1px;align-self:stretch;background:var(--line)"></div>
+                <div style="flex:1"><div style="font-weight:700;font-size:13.5px;color:var(--navy)">Parametri · A. Bruno</div><div style="font-size:12px;color:var(--ink-soft)">Via Vigevano 9 · 2,1 km</div></div>
+                <div style="font-weight:800;color:var(--navy);font-size:14px">42€</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl">Agenda & guadagni</div>
+      <div class="sub">Fatturazione automatica · zero burocrazia</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 — PAGINA SERVIZI ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">06</div>
+    <div class="screen-meta">
+      <h2>Pagina Servizi — il catalogo che vendi</h2>
+      <p>43 servizi organizzati per figura professionale. Le tre core (infermiere, fisioterapista, medico) sono in primo piano: coprono ~95% della GMV. I servizi di nicchia restano a costo marginale quasi nullo — argomento di scalabilità.</p>
+    </div>
+    <div class="pitchnote">Ogni card mostra <b>durata e prezzo prima del click</b>. Trasparenza = leva di conversione contro il mercato sommerso e opaco.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>domicura.it/servizi</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:26px;padding:18px 34px;border-bottom:1px solid var(--line)">
+      <div class="logo" style="font-size:20px"><span class="mark" style="width:30px;height:30px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/><path d="M9 11h2V9h2v2h2v2h-2v2h-2v-2H9v-2Z" fill="#0FB5AD"/></svg></span>Domicura</div>
+      <div style="display:flex;gap:24px;font-size:14px;font-weight:600;color:var(--ink-soft);margin-left:14px"><span>Come funziona</span><span style="color:var(--navy)">Servizi</span><span>Per professionisti</span><span>Abbonamenti</span></div>
+      <div style="margin-left:auto"><button class="btn btn-primary" style="padding:11px 18px">Prenota ora</button></div>
+    </div>
+    <div style="padding:36px 34px 14px;text-align:center">
+      <h2 style="font-size:32px;font-weight:800;color:var(--navy)">Tutto ciò di cui hai bisogno, a casa tua.</h2>
+      <p style="font-size:15px;color:var(--ink-soft);margin-top:8px">Professionisti verificati, prezzo trasparente, ricevuta fiscale automatica.</p>
+      <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:8px 15px;border-radius:999px">3 figure professionali coprono il 95% dei bisogni domiciliari</span>
+    </div>
+    <!-- categoria infermieristici -->
+    <div style="padding:18px 34px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:9px;background:var(--turquoise-soft);display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A8C86" stroke-width="2"><path d="M9 3h6v4l-3 3-3-3V3Z"/><path d="M12 10v8a3 3 0 0 0 6 0v-2"/></svg></span><h3 style="font-size:18px;color:var(--navy)">Servizi infermieristici</h3></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-weight:700;color:var(--navy);font-size:15px">Prelievo del sangue</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">20–30 min · referto digitale</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)">da 35€</span><span style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Prenota →</span></div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-weight:700;color:var(--navy);font-size:15px">Medicazione ferita</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">30–45 min · post-operatorio</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)">da 40€</span><span style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Prenota →</span></div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-weight:700;color:var(--navy);font-size:15px">Terapie iniettive</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">20–40 min · IM/SC/EV</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)">da 40€</span><span style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Prenota →</span></div></div>
+      </div>
+    </div>
+    <!-- categoria fisio -->
+    <div style="padding:24px 34px 0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:9px;background:#E5EEFB;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E63D6" stroke-width="2"><path d="M8 4v6m0 0a4 4 0 0 0 8 0V4M8 16h8"/></svg></span><h3 style="font-size:18px;color:var(--navy)">Fisioterapia & riabilitazione <span style="font-size:12px;font-weight:600;color:var(--ink-soft)">— alto LTV, cicli ripetuti</span></h3></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-weight:700;color:var(--navy);font-size:15px">Fisioterapia domiciliare</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">cicli 8–20 sedute</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)">da 70€</span><span style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Prenota →</span></div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-weight:700;color:var(--navy);font-size:15px">Riabilitazione post-ictus</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">60–90 min · intensiva</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)">da 90€</span><span style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Prenota →</span></div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-weight:700;color:var(--navy);font-size:15px">Riabilitazione geriatrica</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">mantenimento autonomia</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px"><span style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)">da 70€</span><span style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Prenota →</span></div></div>
+      </div>
+    </div>
+    <!-- categoria medici + nicchia -->
+    <div style="padding:24px 34px 36px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:9px;background:var(--pink-soft);display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C44D89" stroke-width="2"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></span><h3 style="font-size:18px;color:var(--navy)">Visite mediche & diagnostica</h3></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <div style="border:1px solid var(--line);border-radius:16px;padding:14px"><div style="font-weight:700;color:var(--navy);font-size:14px">Visita generale</div><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy);margin-top:10px">da 90€</div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:14px"><div style="font-weight:700;color:var(--navy);font-size:14px">ECG con referto</div><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy);margin-top:10px">da 60€</div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:14px"><div style="font-weight:700;color:var(--navy);font-size:14px">Visita geriatrica</div><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy);margin-top:10px">da 120€</div></div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:14px"><div style="font-weight:700;color:var(--navy);font-size:14px">Telemedicina</div><div style="font-family:Bricolage Grotesque;font-weight:800;color:var(--navy);margin-top:10px">da 40€</div></div>
+      </div>
+      <div style="margin-top:14px;background:var(--mist);border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--ink-soft)">+ Servizi specialistici di nicchia (linfodrenaggio, assistenza OSS, monitoraggio cronico) — <b style="color:var(--navy)">espansione catalogo a costo marginale quasi nullo</b>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 — PRICING CRONICITÀ & PACCHETTI ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">07</div>
+    <div class="screen-meta">
+      <h2>Pricing pazienti cronici & pacchetti prepagati</h2>
+      <p>Qui vive il business ricorrente. Il paziente cronico (diabete, scompenso, post-ictus) non compra una prestazione: entra in un <strong style="color:var(--navy)">percorso di cura</strong> mensile. E i pacchetti prepagati bloccano spesa e fidelizzazione in anticipo.</p>
+    </div>
+    <div class="pitchnote">Singola prestazione → revenue una tantum. <b>Percorso cronicità</b> → revenue ricorrente, LTV alto, churn basso. È la trasformazione del margine che gli investitori cercano.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>domicura.it/percorsi-di-cura</div>
+    </div>
+    <div style="padding:34px 34px 10px;text-align:center">
+      <h2 style="font-size:30px;font-weight:800;color:var(--navy)">Una cura continua, non episodica.</h2>
+      <p style="font-size:15px;color:var(--ink-soft);margin-top:8px;max-width:560px;margin-inline:auto">Per chi convive con una patologia cronica o segue un percorso lungo: assistenza programmata, stesso professionista, prezzo bloccato.</p>
+      <div style="display:inline-flex;background:var(--mist);border-radius:13px;padding:5px;margin-top:18px">
+        <span style="padding:9px 16px;font-size:13px;font-weight:600;color:var(--ink-soft)">Prestazioni singole</span>
+        <span style="padding:9px 16px;font-size:13px;font-weight:700;color:var(--navy);background:#fff;border-radius:9px;box-shadow:var(--shadow-sm)">Percorsi cronicità</span>
+        <span style="padding:9px 16px;font-size:13px;font-weight:600;color:var(--ink-soft)">Pacchetti prepagati</span>
+      </div>
+    </div>
+    <!-- percorsi cronicità -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px 34px 8px">
+      <div style="border:1px solid var(--line);border-radius:20px;padding:22px">
+        <div style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Percorso Diabete</div>
+        <div style="margin-top:10px;font-family:Bricolage Grotesque"><span style="font-size:34px;font-weight:800;color:var(--navy)">79€</span><span style="color:var(--ink-soft);font-size:14px"> /mese</span></div>
+        <div style="height:1px;background:var(--line);margin:16px 0"></div>
+        <div style="font-size:13.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:9px">
+          <span>✓ Monitoraggio glicemia bisettimanale</span><span>✓ Parametri vitali + report al medico</span><span>✓ 1 visita di controllo/mese</span><span>✓ Teleconsulto illimitato</span>
+        </div>
+        <button class="btn btn-ghost" style="width:100%;margin-top:18px">Attiva percorso</button>
+      </div>
+      <!-- highlighted -->
+      <div style="border:2px solid var(--turquoise);border-radius:20px;padding:22px;position:relative;box-shadow:var(--shadow-md)">
+        <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;font-size:11px;font-weight:800;padding:5px 13px;border-radius:999px">PIÙ SCELTO</span>
+        <div style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Percorso Cuore · scompenso</div>
+        <div style="margin-top:10px;font-family:Bricolage Grotesque"><span style="font-size:34px;font-weight:800;color:var(--navy)">119€</span><span style="color:var(--ink-soft);font-size:14px"> /mese</span></div>
+        <div style="height:1px;background:var(--line);margin:16px 0"></div>
+        <div style="font-size:13.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:9px">
+          <span>✓ Monitoraggio parametri settimanale</span><span>✓ ECG domiciliare mensile + referto</span><span>✓ Teleconsulto cardiologico dedicato</span><span>✓ Alert e report alla famiglia</span>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:18px">Attiva percorso</button>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:20px;padding:22px">
+        <div style="font-size:13px;font-weight:700;color:var(--turquoise-deep)">Percorso Riabilitazione</div>
+        <div style="margin-top:10px;font-family:Bricolage Grotesque"><span style="font-size:34px;font-weight:800;color:var(--navy)">290€</span><span style="color:var(--ink-soft);font-size:14px"> /mese</span></div>
+        <div style="height:1px;background:var(--line);margin:16px 0"></div>
+        <div style="font-size:13.5px;color:var(--ink-soft);display:flex;flex-direction:column;gap:9px">
+          <span>✓ Fisioterapia intensiva post-ictus</span><span>✓ 8 sedute/mese con stesso fisio</span><span>✓ Piano riabilitativo personalizzato</span><span>✓ Monitoraggio progressi in app</span>
+        </div>
+        <button class="btn btn-ghost" style="width:100%;margin-top:18px">Attiva percorso</button>
+      </div>
+    </div>
+    <!-- pacchetti prepagati -->
+    <div style="padding:18px 34px 10px"><h3 style="font-size:17px;color:var(--navy)">Pacchetti prepagati <span style="font-size:12.5px;font-weight:600;color:var(--ink-soft)">— prezzo bloccato, risparmi sul singolo</span></h3></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 34px 8px">
+      <div style="background:var(--mist);border-radius:18px;padding:18px;position:relative">
+        <span style="position:absolute;top:14px;right:14px;background:var(--pink-soft);color:#A23A6B;font-size:11px;font-weight:800;padding:4px 9px;border-radius:8px">−11%</span>
+        <div style="font-weight:700;color:var(--navy);font-size:15px">Pacchetto Prelievi ×6</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">Per controlli ricorrenti</div>
+        <div style="margin-top:14px;font-family:Bricolage Grotesque"><span style="font-size:26px;font-weight:800;color:var(--navy)">240€</span> <span style="text-decoration:line-through;color:var(--ink-soft);font-size:14px">270€</span></div>
+      </div>
+      <div style="background:var(--mist);border-radius:18px;padding:18px;position:relative">
+        <span style="position:absolute;top:14px;right:14px;background:var(--pink-soft);color:#A23A6B;font-size:11px;font-weight:800;padding:4px 9px;border-radius:8px">−12%</span>
+        <div style="font-weight:700;color:var(--navy);font-size:15px">Ciclo Fisioterapia ×10</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">Stesso fisioterapista garantito</div>
+        <div style="margin-top:14px;font-family:Bricolage Grotesque"><span style="font-size:26px;font-weight:800;color:var(--navy)">750€</span> <span style="text-decoration:line-through;color:var(--ink-soft);font-size:14px">850€</span></div>
+      </div>
+      <div style="background:var(--mist);border-radius:18px;padding:18px;position:relative">
+        <span style="position:absolute;top:14px;right:14px;background:var(--pink-soft);color:#A23A6B;font-size:11px;font-weight:800;padding:4px 9px;border-radius:8px">BUNDLE</span>
+        <div style="font-weight:700;color:var(--navy);font-size:15px">Post-operatorio 7 giorni</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">7 visite + ECG + telemedicina</div>
+        <div style="margin-top:14px;font-family:Bricolage Grotesque"><span style="font-size:26px;font-weight:800;color:var(--navy)">499€</span></div>
+      </div>
+    </div>
+    <!-- abbonamenti strip -->
+    <div style="margin:14px 34px 34px;background:linear-gradient(135deg,var(--navy),#123a63);border-radius:18px;padding:20px 24px;display:flex;align-items:center;gap:24px;color:#fff;flex-wrap:wrap">
+      <div style="flex:1;min-width:220px"><div style="font-weight:800;font-family:Bricolage Grotesque;font-size:17px">Abbonamenti per la famiglia</div><div style="font-size:13px;color:#9DB4CC;margin-top:4px">La porta d'ingresso che trasforma l'uso occasionale in relazione continuativa.</div></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><div style="background:rgba(255,255,255,.08);border-radius:13px;padding:12px 16px"><div style="font-size:12px;color:#9DB4CC">Famiglia Plus</div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:18px">29€<span style="font-size:12px;color:#9DB4CC">/mese</span></div></div><div style="background:rgba(15,181,173,.18);border-radius:13px;padding:12px 16px"><div style="font-size:12px;color:#7FE3DD">Senior Premium</div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:18px">49€<span style="font-size:12px;color:#9DB4CC">/mese</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 — CHECKOUT ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">08</div>
+    <div class="screen-meta">
+      <h2>Checkout — attivazione percorso</h2>
+      <p>Il momento del pagamento. Riepilogo chiaro, primo addebito esplicito, ricevuta fiscale e — leva strategica — la nota di rimborsabilità tramite fondo sanitario o assicurazione (UniSalute, Generali Welion).</p>
+    </div>
+    <div class="pitchnote">Mostrare la <b>rimborsabilità</b> abbatte l'obiezione prezzo vs SSN e apre il canale partnership assicurative — volume garantito.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>domicura.it/checkout</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:0">
+      <!-- left form -->
+      <div style="padding:30px 32px;border-right:1px solid var(--line)">
+        <h3 style="font-size:20px;color:var(--navy)">Completa l'attivazione</h3>
+        <!-- paziente -->
+        <div style="margin-top:20px;font-size:13px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em">Paziente</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+          <div style="border:1px solid var(--line);border-radius:12px;padding:12px 14px"><div style="font-size:11px;color:var(--ink-soft)">Nome</div><div style="font-weight:600;color:var(--navy);font-size:14px">Rosa Maria B.</div></div>
+          <div style="border:1px solid var(--line);border-radius:12px;padding:12px 14px"><div style="font-size:11px;color:var(--ink-soft)">Indirizzo</div><div style="font-weight:600;color:var(--navy);font-size:14px">Via Savona 4, Milano</div></div>
+        </div>
+        <!-- pagamento -->
+        <div style="margin-top:22px;font-size:13px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em">Metodo di pagamento</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+          <div style="border:2px solid var(--turquoise);background:var(--turquoise-soft);border-radius:13px;padding:13px 15px;display:flex;align-items:center;gap:12px"><div style="width:36px;height:24px;border-radius:5px;background:linear-gradient(135deg,#1E63D6,#0A2540)"></div><span style="font-weight:700;color:var(--navy);font-size:14px">Carta •••• 4218</span><span style="margin-left:auto;color:var(--turquoise-deep)">✓</span></div>
+          <div style="border:1px solid var(--line);border-radius:13px;padding:13px 15px;display:flex;align-items:center;gap:12px;color:var(--ink-soft)"><span style="font-weight:700;font-size:14px"> Pay</span><span style="font-size:13px">/ PayPal / Google Pay</span></div>
+        </div>
+        <!-- rimborso -->
+        <div style="margin-top:18px;background:var(--pink-soft);border-radius:13px;padding:13px 15px;display:flex;align-items:center;gap:11px"><span style="font-size:18px">↺</span><div style="font-size:13px;color:#8E2F5C"><b>Prestazione rimborsabile</b> dal tuo fondo sanitario o assicurazione. Ricevuta pronta per la richiesta.</div></div>
+      </div>
+      <!-- right summary -->
+      <div style="padding:30px 32px;background:var(--mist)">
+        <div style="font-size:13px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em">Riepilogo</div>
+        <div style="background:#fff;border-radius:16px;padding:18px;margin-top:12px;box-shadow:var(--shadow-sm)">
+          <div style="display:flex;align-items:center;gap:10px"><span style="width:34px;height:34px;border-radius:10px;background:var(--turquoise-soft);display:grid;place-items:center">❤</span><div><div style="font-weight:700;color:var(--navy);font-size:14px">Percorso Cuore</div><div style="font-size:12px;color:var(--ink-soft)">abbonamento mensile</div></div></div>
+          <div style="height:1px;background:var(--line);margin:14px 0"></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-soft)"><span>Canone mensile</span><span style="color:var(--navy);font-weight:600">119,00€</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-soft);margin-top:8px"><span>ECG di attivazione</span><span style="color:var(--turquoise-deep);font-weight:700">incluso</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-soft);margin-top:8px"><span>Sconto primo mese</span><span style="color:var(--navy);font-weight:600">−20,00€</span></div>
+          <div style="height:1px;background:var(--line);margin:14px 0"></div>
+          <div style="display:flex;justify-content:space-between;font-family:Bricolage Grotesque;font-weight:800;color:var(--navy)"><span>Oggi paghi</span><span style="font-size:20px">99,00€</span></div>
+          <div style="font-size:12px;color:var(--ink-soft);margin-top:4px">poi 119€/mese · disdici quando vuoi</div>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:16px;padding:15px">Conferma e attiva il percorso</button>
+        <div style="font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:12px">🔒 Pagamento sicuro Stripe · ricevuta fiscale automatica</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 — PROFILO OPERATORE ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">09</div>
+    <div class="screen-meta">
+      <h2>Profilo operatore — la fiducia resa visibile</h2>
+      <p>Mini CV, garanzie verificabili (Albo, RC, background check) e recensioni reali — a stelle e scritte. È il dato reputazionale che un nuovo entrante non può copiare: il moat più sottovalutato della piattaforma.</p>
+    </div>
+    <div class="pitchnote">La <b>continuità</b> ("scegli sempre Giulia") è insieme proposta di valore per il paziente e meccanismo di lock-in supply-side.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>domicura.it/professionisti/giulia-marchetti</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:0">
+      <!-- left: profile + reviews -->
+      <div style="padding:30px 32px;border-right:1px solid var(--line)">
+        <div style="display:flex;gap:18px;align-items:flex-start">
+          <div class="avatar" style="width:78px;height:78px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:26px">GM</div>
+          <div style="flex:1">
+            <h3 style="font-size:23px;color:var(--navy)">Giulia Marchetti</h3>
+            <div style="font-size:14px;color:var(--ink-soft)">Infermiera · OPI Milano n.4821</div>
+            <div style="margin-top:6px"><span class="stars" style="font-size:16px">★★★★★</span> <span style="font-weight:700;color:var(--navy)">4,9</span> <span style="font-size:13px;color:var(--ink-soft)">· 312 prestazioni</span></div>
+          </div>
+        </div>
+        <!-- garanzie -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+          <span style="font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 12px;border-radius:9px">✓ Albo verificato</span>
+          <span style="font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 12px;border-radius:9px">✓ RC €2M attiva</span>
+          <span style="font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 12px;border-radius:9px">✓ Background check</span>
+          <span style="font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 12px;border-radius:9px">✓ P.IVA</span>
+        </div>
+        <!-- mini CV -->
+        <div style="margin-top:22px"><div style="font-weight:700;color:var(--navy);font-size:15px">Esperienza</div><p style="font-size:13.5px;color:var(--ink-soft);margin-top:6px;line-height:1.6">6 anni in area medica e chirurgica presso strutture private milanesi. Dal 2022 libera professionista a domicilio. Specializzata in <b style="color:var(--navy)">medicazioni avanzate</b>, gestione piaghe da decubito e terapie iniettive.</p></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+          <span class="chip">Medicazioni avanzate</span><span class="chip">Prelievi</span><span class="chip">Terapie iniettive</span><span class="chip">Post-operatorio</span>
+        </div>
+        <!-- rating breakdown -->
+        <div style="margin-top:24px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+          <div style="text-align:center"><div style="font-family:Bricolage Grotesque;font-size:42px;font-weight:800;color:var(--navy);line-height:1">4,9</div><div class="stars">★★★★★</div><div style="font-size:12px;color:var(--ink-soft)">312 recensioni</div></div>
+          <div style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-soft)">5★<div style="flex:1;height:7px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:91%;height:100%;background:var(--turquoise)"></div></div>91%</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-soft)">4★<div style="flex:1;height:7px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:7%;height:100%;background:var(--turquoise)"></div></div>7%</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-soft)">3★<div style="flex:1;height:7px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:2%;height:100%;background:var(--turquoise)"></div></div>2%</div>
+          </div>
+        </div>
+        <!-- written reviews -->
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px">
+          <div style="border:1px solid var(--line);border-radius:14px;padding:14px 16px"><div style="display:flex;align-items:center;gap:8px"><div class="avatar" style="width:30px;height:30px;background:var(--pink);font-size:11px">LF</div><b style="font-size:13.5px;color:var(--navy)">Laura F.</b><span class="stars" style="margin-left:auto">★★★★★</span></div><p style="font-size:13px;color:var(--ink-soft);margin-top:8px">Puntualissima e gentile con mia madre. Ha spiegato tutto con calma e il referto è arrivato in app dopo un'ora. Prenoteremo sempre lei.</p><div style="font-size:11px;color:var(--ink-soft);margin-top:6px">12 maggio · Prelievo del sangue</div></div>
+          <div style="border:1px solid var(--line);border-radius:14px;padding:14px 16px"><div style="display:flex;align-items:center;gap:8px"><div class="avatar" style="width:30px;height:30px;background:var(--blue);font-size:11px">MC</div><b style="font-size:13.5px;color:var(--navy)">Marco C.</b><span class="stars" style="margin-left:auto">★★★★★</span></div><p style="font-size:13px;color:var(--ink-soft);margin-top:8px">Professionale e rassicurante. Medicazione perfetta, mi ha seguito per tutto il post-operatorio. Una sicurezza averla a disposizione.</p><div style="font-size:11px;color:var(--ink-soft);margin-top:6px">3 maggio · Medicazione ferita</div></div>
+        </div>
+      </div>
+      <!-- right: booking sticky -->
+      <div style="padding:30px 32px;background:var(--mist)">
+        <div style="background:#fff;border-radius:18px;padding:20px;box-shadow:var(--shadow-sm)">
+          <div style="font-weight:800;font-family:Bricolage Grotesque;color:var(--navy);font-size:18px">Prenota con Giulia</div>
+          <div style="display:flex;gap:18px;margin-top:14px">
+            <div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--navy)">98%</div><div style="font-size:11.5px;color:var(--ink-soft)">on-time</div></div>
+            <div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--navy)">~20'</div><div style="font-size:11.5px;color:var(--ink-soft)">arrivo medio</div></div>
+            <div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--navy)">6 anni</div><div style="font-size:11.5px;color:var(--ink-soft)">esperienza</div></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%;margin-top:18px">Prenota ora</button>
+          <button class="btn btn-ghost" style="width:100%;margin-top:10px">★ Scegli sempre Giulia</button>
+          <div style="font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:12px">Disponibile oggi · zona Navigli</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 — FASCICOLO SANITARIO ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">10</div>
+    <div class="screen-meta">
+      <h2>Fascicolo sanitario del paziente</h2>
+      <p>Tutto lo storico delle prestazioni acquistate su Domicura in un unico luogo: referti scaricabili, parametri nel tempo, terapie in corso, documenti. È l'asset che cresce con l'uso e che rende costoso andarsene.</p>
+    </div>
+    <div class="pitchnote">Lo storico clinico digitale = <b>switching cost</b> per il paziente e dato proprietario per la piattaforma. GDPR by design: dato di categoria speciale, accesso garantito.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>app.domicura.it/fascicolo</div>
+    </div>
+    <div style="display:grid;grid-template-columns:210px 1fr">
+      <div style="background:var(--navy);padding:22px 16px;color:#fff;min-height:560px">
+        <div class="logo" style="color:#fff;font-size:18px;margin-bottom:24px"><span class="mark" style="width:28px;height:28px"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/></svg></span>Domicura</div>
+        <div style="background:rgba(255,255,255,.06);border-radius:14px;padding:14px;margin-bottom:18px"><div style="display:flex;align-items:center;gap:10px"><div class="avatar" style="width:38px;height:38px;background:linear-gradient(135deg,var(--pink),#C44D89);font-size:14px">RM</div><div><div style="font-size:13px;font-weight:700">Rosa Maria</div><div style="font-size:11px;color:#9DB4CC">Fascicolo · 78 anni</div></div></div></div>
+        <div style="display:flex;flex-direction:column;gap:3px;font-size:13.5px;font-weight:600">
+          <span style="background:rgba(15,181,173,.22);padding:10px 13px;border-radius:11px">📋 Storico prestazioni</span>
+          <span style="color:#9DB4CC;padding:10px 13px">📄 Referti & documenti</span>
+          <span style="color:#9DB4CC;padding:10px 13px">📈 Parametri</span>
+          <span style="color:#9DB4CC;padding:10px 13px">💊 Terapie in corso</span>
+        </div>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="display:flex;align-items:center"><div><div style="font-size:13px;color:var(--ink-soft);font-weight:600">Fascicolo sanitario digitale</div><h3 style="font-size:23px;font-weight:800;color:var(--navy)">Storico di Rosa Maria</h3></div><span style="margin-left:auto;font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:7px 12px;border-radius:9px">🔒 Dati protetti GDPR</span></div>
+        <!-- mini parametri chart -->
+        <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:20px">
+          <div style="border:1px solid var(--line);border-radius:16px;padding:16px">
+            <div style="font-size:13px;font-weight:700;color:var(--navy)">Pressione arteriosa · ultimi 30 giorni</div>
+            <svg viewBox="0 0 320 90" style="width:100%;height:80px;margin-top:10px"><polyline points="0,55 50,48 100,52 150,40 200,45 260,38 320,42" fill="none" stroke="#0FB5AD" stroke-width="3" stroke-linecap="round"/><polyline points="0,72 50,70 100,68 150,66 200,68 260,64 320,66" fill="none" stroke="#FF6FA5" stroke-width="2.5" stroke-dasharray="4 4"/></svg>
+            <div style="display:flex;gap:14px;font-size:11.5px;color:var(--ink-soft)"><span>● <span style="color:var(--turquoise-deep)">Sistolica</span></span><span>● <span style="color:var(--pink)">Diastolica</span></span></div>
+          </div>
+          <div style="border:1px solid var(--line);border-radius:16px;padding:16px">
+            <div style="font-size:13px;font-weight:700;color:var(--navy)">Terapie in corso</div>
+            <div style="margin-top:10px;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:8px"><span>💊 Anticoagulante · 1×/die</span><span>💊 Antipertensivo · mattino</span><span>🩹 Medicazione · ogni 3 gg</span></div>
+          </div>
+        </div>
+        <!-- storico timeline -->
+        <div style="margin-top:20px;font-size:14px;font-weight:700;color:var(--navy)">Prestazioni acquistate</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 15px"><div class="avatar" style="width:38px;height:38px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:13px">GM</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Prelievo del sangue</div><div style="font-size:12px;color:var(--ink-soft)">Giulia M. · 12 mag · 48€</div></div><span style="font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:6px 11px;border-radius:9px">📄 Referto</span></div>
+          <div style="display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 15px"><div class="avatar" style="width:38px;height:38px;background:linear-gradient(135deg,var(--pink),#C44D89);font-size:13px">DF</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">Fisioterapia geriatrica</div><div style="font-size:12px;color:var(--ink-soft)">Davide F. · 8 mag · ciclo 3/10 · 85€</div></div><span style="font-size:12px;font-weight:700;color:var(--ink-soft);background:var(--mist);padding:6px 11px;border-radius:9px">📝 Note</span></div>
+          <div style="display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:14px;padding:13px 15px"><div class="avatar" style="width:38px;height:38px;background:linear-gradient(135deg,var(--turquoise),var(--blue));font-size:13px">GM</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--navy)">ECG domiciliare</div><div style="font-size:12px;color:var(--ink-soft)">Giulia M. + cardiologo · 4 mag · 70€</div></div><span style="font-size:12px;font-weight:700;color:var(--turquoise-deep);background:var(--turquoise-soft);padding:6px 11px;border-radius:9px">📄 Referto</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 — GESTIONALE OPERATORE ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">11</div>
+    <div class="screen-meta">
+      <h2>Gestionale operatore — il "back office" del professionista</h2>
+      <p>Il lato supply ha la sua console web: agenda, richieste, guadagni, fatturazione automatica e compliance (RC, documenti, Albo). Più la piattaforma gestisce la burocrazia del professionista, più alto è il costo di disintermediazione.</p>
+    </div>
+    <div class="pitchnote">Fatturazione + RC + nuovi pazienti = il <b>valore aggiunto continuo</b> che risponde al rischio n.1 della DD: la disintermediazione.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>pro.domicura.it/dashboard</div>
+    </div>
+    <div style="display:grid;grid-template-columns:210px 1fr">
+      <div style="background:#0A8C86;padding:22px 16px;color:#fff;min-height:560px">
+        <div class="logo" style="color:#fff;font-size:17px;margin-bottom:24px"><span class="mark" style="width:28px;height:28px;background:#fff"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#0FB5AD"/></svg></span>Domicura<span style="font-size:11px;opacity:.7"> Pro</span></div>
+        <div style="background:rgba(255,255,255,.12);border-radius:14px;padding:14px;margin-bottom:18px"><div style="display:flex;align-items:center;gap:10px"><div class="avatar" style="width:38px;height:38px;background:rgba(255,255,255,.25);font-size:14px">GM</div><div><div style="font-size:13px;font-weight:700">Giulia M.</div><div style="font-size:11px;opacity:.8">● Online</div></div></div></div>
+        <div style="display:flex;flex-direction:column;gap:3px;font-size:13.5px;font-weight:600">
+          <span style="background:rgba(255,255,255,.16);padding:10px 13px;border-radius:11px">📊 Dashboard</span>
+          <span style="opacity:.78;padding:10px 13px">📅 Agenda</span>
+          <span style="opacity:.78;padding:10px 13px">🔔 Richieste</span>
+          <span style="opacity:.78;padding:10px 13px">💶 Fatturazione</span>
+          <span style="opacity:.78;padding:10px 13px">🛡 Compliance</span>
+        </div>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="display:flex;align-items:center"><div><div style="font-size:13px;color:var(--ink-soft);font-weight:600">Lunedì 12 maggio</div><h3 style="font-size:23px;font-weight:800;color:var(--navy)">Buongiorno, Giulia</h3></div><span style="margin-left:auto;font-size:12px;font-weight:700;color:#fff;background:var(--pink);padding:8px 13px;border-radius:10px">2 nuove richieste</span></div>
+        <!-- KPI -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px">
+          <div style="border:1px solid var(--line);border-radius:14px;padding:15px"><div style="font-size:11.5px;color:var(--ink-soft);font-weight:600">Guadagni mese</div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--navy);margin-top:5px">2.480€</div></div>
+          <div style="border:1px solid var(--line);border-radius:14px;padding:15px"><div style="font-size:11.5px;color:var(--ink-soft);font-weight:600">Prestazioni</div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--navy);margin-top:5px">58</div></div>
+          <div style="border:1px solid var(--line);border-radius:14px;padding:15px"><div style="font-size:11.5px;color:var(--ink-soft);font-weight:600">Rating</div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--navy);margin-top:5px">4,9★</div></div>
+          <div style="border:1px solid var(--line);border-radius:14px;padding:15px;background:var(--turquoise-soft)"><div style="font-size:11.5px;color:var(--turquoise-deep);font-weight:600">Accettazione</div><div style="font-family:Bricolage Grotesque;font-weight:800;font-size:20px;color:var(--turquoise-deep);margin-top:5px">96%</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:18px">
+          <!-- agenda -->
+          <div style="border:1px solid var(--line);border-radius:16px;padding:16px">
+            <div style="font-size:14px;font-weight:700;color:var(--navy)">Agenda di oggi</div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:9px">
+              <div style="display:flex;gap:12px;align-items:center;background:var(--mist);border-radius:11px;padding:10px 12px"><b style="font-family:Bricolage Grotesque;color:var(--turquoise-deep);font-size:14px">9:30</b><span style="font-size:13px;color:var(--navy);flex:1">Medicazione · R. Maria</span><span style="font-size:12px;font-weight:700;color:var(--navy)">44€</span></div>
+              <div style="display:flex;gap:12px;align-items:center;background:var(--mist);border-radius:11px;padding:10px 12px"><b style="font-family:Bricolage Grotesque;color:var(--ink-soft);font-size:14px">11:00</b><span style="font-size:13px;color:var(--navy);flex:1">Prelievo · F. Conti</span><span style="font-size:12px;font-weight:700;color:var(--navy)">38€</span></div>
+              <div style="display:flex;gap:12px;align-items:center;background:var(--mist);border-radius:11px;padding:10px 12px"><b style="font-family:Bricolage Grotesque;color:var(--ink-soft);font-size:14px">15:30</b><span style="font-size:13px;color:var(--navy);flex:1">Parametri · A. Bruno</span><span style="font-size:12px;font-weight:700;color:var(--navy)">42€</span></div>
+            </div>
+          </div>
+          <!-- fatturazione + compliance -->
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:13px;font-weight:700;color:var(--navy)">Fatturazione</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:8px">58 fatture emesse automaticamente</div><div style="margin-top:8px;font-size:12.5px;color:var(--turquoise-deep);font-weight:700">Prossimo accredito: 1.984€ · 15 mag</div></div>
+            <div style="border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:13px;font-weight:700;color:var(--navy)">Compliance</div><div style="margin-top:8px;font-size:12.5px;display:flex;flex-direction:column;gap:6px"><span style="color:var(--turquoise-deep)">✓ Iscrizione Albo · ok</span><span style="color:var(--turquoise-deep)">✓ P.IVA · ok</span><span style="color:#C99700">⚠ RC professionale · rinnovo tra 24 gg</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 — FAQ ============ -->
+<section class="screen wrap">
+  <div class="screen-head">
+    <div class="screen-num">12</div>
+    <div class="screen-meta">
+      <h2>FAQ — abbattere le obiezioni all'acquisto</h2>
+      <p>Le domande mappano le obiezioni reali del customer journey: fiducia nel professionista, prezzo vs SSN, velocità, continuità, rimborsabilità e privacy. Ogni risposta è una leva di conversione.</p>
+    </div>
+    <div class="pitchnote">"Come faccio a fidarmi?" e "quanto costa vs SSN?" sono le due obiezioni che bloccano la conversione: <b>vanno risolte sopra la piega</b>.</div>
+  </div>
+
+  <div class="browser fx" style="animation-delay:.05s">
+    <div class="chrome">
+      <div class="dots"><i style="background:#FF6058"></i><i style="background:#FFBE2F"></i><i style="background:#2ACA44"></i></div>
+      <div class="urlbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>domicura.it/faq</div>
+    </div>
+    <div style="padding:36px 34px;max-width:760px;margin:0 auto">
+      <h2 style="font-size:28px;font-weight:800;color:var(--navy);text-align:center">Domande frequenti</h2>
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+        <div style="border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:var(--mist)">
+          <div style="display:flex;align-items:center;font-weight:700;color:var(--navy);font-size:15px">Come faccio a fidarmi del professionista che arriva a casa?<span style="margin-left:auto;color:var(--turquoise-deep)">−</span></div>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin-top:10px;line-height:1.6">Ogni professionista è verificato prima dell'attivazione: iscrizione all'Albo, P.IVA, polizza RC da almeno €2M e background check sui registri pubblici. Vedi foto, numero d'albo, rating e recensioni reali prima di confermare. Le prime 5 prestazioni richiedono un rating medio ≥ 4,5 per ottenere il badge Verified.</p>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:18px 20px">
+          <div style="display:flex;align-items:center;font-weight:700;color:var(--navy);font-size:15px">Quanto costa rispetto al SSN gratuito?<span style="margin-left:auto;color:var(--ink-soft)">+</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:18px 20px">
+          <div style="display:flex;align-items:center;font-weight:700;color:var(--navy);font-size:15px">In quanto tempo arriva il professionista?<span style="margin-left:auto;color:var(--ink-soft)">+</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:18px 20px">
+          <div style="display:flex;align-items:center;font-weight:700;color:var(--navy);font-size:15px">Posso scegliere sempre lo stesso professionista?<span style="margin-left:auto;color:var(--ink-soft)">+</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:18px 20px">
+          <div style="display:flex;align-items:center;font-weight:700;color:var(--navy);font-size:15px">Le prestazioni sono rimborsabili dalla mia assicurazione o fondo sanitario?<span style="margin-left:auto;color:var(--ink-soft)">+</span></div>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:16px;padding:18px 20px">
+          <div style="display:flex;align-items:center;font-weight:700;color:var(--navy);font-size:15px">I dati sanitari di mio padre sono al sicuro?<span style="margin-left:auto;color:var(--ink-soft)">+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/><path d="M9 11h2V9h2v2h2v2h-2v2h-2v-2H9v-2Z" fill="#0FB5AD"/></svg></span>Domicura</div>
+  Mockup interfacce · documento riservato — ad uso interno e investitori
+</footer>
+
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+
+<!-- ================= ENHANCEMENT LAYER (3D · dinamico · capitoli) ================= -->
+<style id="domicura-enhance">
+  html{scroll-behavior:smooth;scroll-padding-top:92px}
+  body{position:relative;overflow-x:hidden;
+    background:
+      radial-gradient(1200px 600px at 82% -12%, rgba(15,181,173,.20), transparent 60%),
+      radial-gradient(900px 520px at -12% 26%, rgba(30,99,214,.14), transparent 55%),
+      radial-gradient(760px 760px at 108% 108%, rgba(255,111,165,.12), transparent 60%),
+      linear-gradient(180deg,#EEF6F7,#F3F8F9);
+  }
+  /* orbs sfondo animato */
+  .orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(64px);opacity:.55;mix-blend-mode:multiply}
+  .orb.o1{width:440px;height:440px;background:radial-gradient(circle,#8fe6df,transparent 70%);top:-90px;left:-70px;animation:float1 19s ease-in-out infinite}
+  .orb.o2{width:540px;height:540px;background:radial-gradient(circle,#a9c6f5,transparent 70%);top:38%;right:-130px;animation:float2 23s ease-in-out infinite}
+  .orb.o3{width:380px;height:380px;background:radial-gradient(circle,#ffc2d8,transparent 70%);bottom:-90px;left:28%;animation:float3 21s ease-in-out infinite}
+  @keyframes float1{50%{transform:translate(70px,54px) scale(1.12)}}
+  @keyframes float2{50%{transform:translate(-80px,-46px) scale(1.09)}}
+  @keyframes float3{50%{transform:translate(46px,-56px) scale(1.14)}}
+  .wrap,section,footer,.dnav{position:relative;z-index:1}
+
+  /* ---- barra di navigazione fissa ---- */
+  .dnav{position:fixed;top:0;left:0;right:0;z-index:60;
+    background:rgba(255,255,255,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+    border-bottom:1px solid rgba(226,236,238,.85);box-shadow:0 6px 26px rgba(10,37,64,.06)}
+  .dnav-in{max-width:1180px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:16px}
+  .dnav-brand{display:flex;align-items:center;gap:9px;font-family:'Bricolage Grotesque';font-weight:800;font-size:18px;color:var(--navy);text-decoration:none;flex-shrink:0}
+  .dnav-mark{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--turquoise),var(--blue));display:grid;place-items:center;box-shadow:0 5px 12px rgba(15,181,173,.4)}
+  .dnav-mark svg{width:16px;height:16px}
+  .dnav-links{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:none}
+  .dnav-links::-webkit-scrollbar{display:none}
+  .dnav-links a{font-size:13px;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:.22s}
+  .dnav-links a:hover{color:var(--navy);background:var(--mist)}
+  .dnav-links a.on{color:#fff;background:linear-gradient(135deg,var(--turquoise),var(--blue));box-shadow:0 6px 14px rgba(30,99,214,.3)}
+  .dnav-links a .dnav-e{font-size:14px}
+  .dnav-links a.on .dnav-e{filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
+  .dnav-cta{flex-shrink:0;font-size:13px;font-weight:700;color:var(--turquoise-deep);text-decoration:none;padding:7px 13px;border-radius:999px;background:var(--turquoise-soft)}
+  .dnav-progress{height:3px;background:transparent}
+  .dnav-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--turquoise),var(--blue),var(--pink));border-radius:0 3px 3px 0;transition:width .12s ease}
+  @media(max-width:720px){.dnav-cta{display:none}.dnav-in{padding:10px 18px}}
+
+  /* ---- header: spazio + box "in parole semplici" + indice capitoli ---- */
+  .topbar{padding-top:104px!important}
+  .topbar h1{max-width:640px}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .hero-pills span{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--navy);background:rgba(255,255,255,.74);border:1px solid var(--line);padding:9px 15px;border-radius:999px;box-shadow:var(--shadow-sm);transition:.25s}
+  .hero-pills span:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--turquoise-soft)}
+  .plain{margin-top:28px;background:linear-gradient(120deg,rgba(214,244,241,.9),rgba(255,255,255,.82));border:1px solid var(--turquoise-soft);border-radius:20px;padding:24px 28px;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+  .plain:before{content:'';position:absolute;right:-30px;top:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(15,181,173,.18),transparent 70%);pointer-events:none}
+  .plain-h{font-size:12.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--turquoise-deep)}
+  .plain p{margin-top:9px;font-size:17px;color:var(--ink);line-height:1.6;max-width:820px;position:relative}
+  .toc{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .toc-card{background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:18px;padding:16px 17px 13px;box-shadow:var(--shadow-sm);transition:.3s}
+  .toc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--turquoise-soft)}
+  .toc-emoji{font-size:26px;line-height:1;margin-bottom:8px}
+  .toc-k{font-family:'Bricolage Grotesque';font-weight:800;font-size:11.5px;color:var(--turquoise-deep);text-transform:uppercase;letter-spacing:.05em}
+  .toc-t{font-family:'Bricolage Grotesque';font-weight:700;font-size:15.5px;color:var(--navy);margin-top:3px;line-height:1.15}
+  .toc-list{margin-top:11px;display:flex;flex-direction:column}
+  .toc-list a{font-size:13px;color:var(--ink-soft);text-decoration:none;padding:6px 0;border-top:1px solid var(--line);display:flex;gap:9px;align-items:center;transition:.2s}
+  .toc-list a:first-child{border-top:none}
+  .toc-list a:hover{color:var(--turquoise-deep);padding-left:5px}
+  .toc-list a b{color:var(--navy);font-family:'Bricolage Grotesque';font-weight:800;font-size:11.5px;background:var(--mist);border-radius:6px;padding:2px 6px;min-width:24px;text-align:center}
+  @media(max-width:860px){.toc{grid-template-columns:1fr}}
+
+  /* ---- separatori di capitolo ---- */
+  .chapter{padding:44px 0 8px}
+  .chapter-card{display:flex;align-items:center;gap:22px;background:linear-gradient(120deg,var(--navy),#123a63);border-radius:26px;padding:28px 32px;color:#fff;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+  .chapter-card:before{content:'';position:absolute;right:-50px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(15,181,173,.38),transparent 70%)}
+  .chapter-card:after{content:'';position:absolute;left:-30px;bottom:-70px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,111,165,.22),transparent 70%)}
+  .chapter-emoji{font-size:44px;line-height:1;min-width:64px;text-align:center;filter:drop-shadow(0 6px 14px rgba(0,0,0,.28));animation:chapfloat 4s ease-in-out infinite}
+  @keyframes chapfloat{50%{transform:translateY(-6px)}}
+  .chapter-n{font-family:'Bricolage Grotesque';font-weight:800;font-size:78px;color:rgba(255,255,255,.14);line-height:1;position:absolute;right:26px;bottom:6px;pointer-events:none}
+  .chapter-body{position:relative;flex:1}
+  .chapter-k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--turquoise)}
+  .chapter-t{font-size:25px;font-weight:800;color:#fff;margin-top:3px}
+  .chapter-d{font-size:14.5px;color:#B7CBDE;margin-top:7px;max-width:660px;line-height:1.5}
+  @media(max-width:720px){.chapter-card{gap:16px;padding:22px}.chapter-n{font-size:36px;min-width:52px}.chapter-t{font-size:20px}}
+
+  /* ---- reveal allo scroll ---- */
+  .fx{opacity:0;transform:translateY(42px) scale(.985);animation:none!important}
+  .fx.in{opacity:1;transform:none;transition:opacity .8s ease,transform .95s cubic-bezier(.2,.7,.2,1)}
+
+  /* ---- profondità 3D su telefoni e browser ---- */
+  .browser,.phone,.devices .phone{transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s;transform-style:preserve-3d;will-change:transform}
+  .browser.in{transform:perspective(2200px) rotateX(3deg)}
+  .browser.in:hover{transform:perspective(2200px) rotateX(0) translateY(-8px);box-shadow:0 44px 96px rgba(10,37,64,.24)}
+  .phone.in{transform:perspective(1400px) rotateY(-6deg) rotateX(2.5deg)}
+  .phone.in:hover{transform:perspective(1400px) rotateY(0) rotateX(0) translateY(-10px);box-shadow:0 48px 104px rgba(10,37,64,.32),inset 0 0 0 2px rgba(255,255,255,.06)}
+  .device-cap{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+
+  /* ---- indice laterale a puntini ---- */
+  .sidedots{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;gap:12px}
+  .sidedots a{width:11px;height:11px;border-radius:50%;background:#C3D6DB;position:relative;transition:.25s;display:block}
+  .sidedots a:hover{background:var(--turquoise);transform:scale(1.35)}
+  .sidedots a.on{background:linear-gradient(135deg,var(--turquoise),var(--blue));transform:scale(1.4);box-shadow:0 0 0 4px rgba(15,181,173,.18)}
+  .sidedots a span{position:absolute;right:22px;top:50%;transform:translateY(-50%);white-space:nowrap;background:var(--navy);color:#fff;font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:.2s;box-shadow:var(--shadow-sm)}
+  .sidedots a:hover span{opacity:1}
+  @media(max-width:1120px){.sidedots{display:none}}
+
+  /* ---- FAQ a fisarmonica ---- */
+  .faq-head{cursor:pointer;user-select:none}
+  .faq-head span{transition:transform .3s}
+  .faq-ans{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .3s ease,margin .3s ease;font-size:13.5px;color:var(--ink-soft);line-height:1.62}
+  .faq-open .faq-ans{max-height:340px;opacity:1;margin-top:10px}
+
+  /* emoji nei titoli di sezione */
+  .h2-emoji{display:inline-block;margin-right:4px;filter:drop-shadow(0 2px 4px rgba(10,37,64,.14))}
+
+  @media(prefers-reduced-motion:reduce){
+    .fx{opacity:1!important;transform:none!important}
+    .orb{animation:none}
+    *{scroll-behavior:auto}
+  }
+
+  /* ---- scroll fluido su telefono: via gli effetti costosi durante lo scroll ---- */
+  html{-webkit-text-size-adjust:100%}
+  body{-webkit-overflow-scrolling:touch}
+  @media (hover:none){
+    .browser,.phone,.devices .phone{will-change:auto}
+    .browser.in,.phone.in,.browser.in:hover,.phone.in:hover{transform:none;box-shadow:var(--shadow-md)}
+  }
+  @media (max-width:820px){
+    .orbs{display:none}                       /* niente orb sfocati fissi che ridipingono a ogni scroll */
+    .dnav{background:rgba(255,255,255,.96);backdrop-filter:none;-webkit-backdrop-filter:none}
+    .chapter-emoji{animation:none}
+    .plain:before,.chapter-card:before,.chapter-card:after{display:none}
+    body{background:linear-gradient(180deg,#EEF6F7,#F3F8F9)}   /* gradiente leggero, meno lavoro di paint */
+    .browser,.phone,.devices .phone{will-change:auto}
+    .browser.in,.phone.in,.browser.in:hover,.phone.in:hover{transform:none;box-shadow:var(--shadow-md)}
+  }
+</style>
+
+<script>
+(function(){
+  const $  = (s,c=document)=>c.querySelector(s);
+  const $$ = (s,c=document)=>Array.prototype.slice.call((c||document).querySelectorAll(s));
+
+  /* ---------- sfondo: orbs ---------- */
+  const orbs=document.createElement('div');
+  orbs.className='orbs';
+  orbs.innerHTML='<span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>';
+  document.body.insertBefore(orbs, document.body.firstChild);
+
+  /* ---------- sezioni: id + titoli ---------- */
+  const sections=$$('section.screen');
+  const info=sections.map(function(sec){
+    const num=(sec.querySelector('.screen-num')||{}).textContent||'';
+    const h2 =(sec.querySelector('.screen-meta h2')||{}).textContent||'';
+    const n=num.trim(); const id='schermata-'+n;
+    sec.id=id;
+    return {sec:sec, num:n, title:h2.trim(), id:id};
+  });
+
+  /* ---------- capitoli (raggruppano le schermate, senza riordinarle) ---------- */
+  const chapters=[
+    {at:0,  e:'🩺', s:'Il paziente',       k:'Capitolo 1', t:'L’esperienza del paziente', d:'Come una persona trova, prenota e riceve una prestazione a casa — passo dopo passo, dalla ricerca alla ricevuta.'},
+    {at:3,  e:'👨‍👩‍👧', s:'La famiglia',      k:'Capitolo 2', t:'La famiglia che assiste', d:'Il figlio o la figlia che, anche da un’altra città, prenota e tiene sotto controllo la salute di un genitore.'},
+    {at:4,  e:'👩‍⚕️', s:'Il professionista', k:'Capitolo 3', t:'Il lato del professionista', d:'Come infermieri, fisioterapisti e medici ricevono le richieste, gestiscono l’agenda e vengono pagati.'},
+    {at:5,  e:'💊', s:'Servizi & prezzi',  k:'Capitolo 4', t:'Cosa offriamo e a che prezzo', d:'Il catalogo dei servizi, i percorsi di cura per chi ha bisogni continui e il pagamento sicuro.'},
+    {at:8,  e:'🛡️', s:'Fiducia & dati',    k:'Capitolo 5', t:'Fiducia, dati e gestione', d:'Profili verificati, lo storico sanitario del paziente e la console con cui il professionista gestisce tutto.'},
+    {at:11, e:'💬', s:'Domande frequenti', k:'Capitolo 6', t:'Le domande frequenti', d:'I dubbi tipici di chi deve scegliere — e le risposte chiare che li sciolgono.'}
+  ];
+  // numero di schermata con cui inizia ciascun capitolo
+  chapters.forEach(function(c){ c.firstNum = info[c.at] ? info[c.at].num : ''; c.firstId = info[c.at] ? info[c.at].id : ''; });
+  function chapterForIndex(i){ let r=chapters[0]; chapters.forEach(function(c){ if(c.at<=i) r=c; }); return r; }
+
+  // inserisci i separatori di capitolo prima delle sezioni indicate
+  chapters.forEach(function(c){
+    const target=info[c.at] && info[c.at].sec;
+    if(!target) return;
+    const el=document.createElement('div');
+    el.className='chapter wrap fx';
+    el.id='cap-'+c.firstNum;
+    el.innerHTML='<div class="chapter-card">'
+      +'<div class="chapter-emoji">'+c.e+'</div>'
+      +'<div class="chapter-body"><div class="chapter-k">'+c.e+' '+c.k+'</div>'
+      +'<h2 class="chapter-t">'+c.t+'</h2><p class="chapter-d">'+c.d+'</p></div>'
+      +'<div class="chapter-n">'+c.k.replace(/\D/g,'').padStart(2,'0')+'</div></div>';
+    target.parentNode.insertBefore(el, target);
+  });
+
+  /* ---------- barra di navigazione + progresso ---------- */
+  const dnav=document.createElement('div');
+  dnav.className='dnav';
+  let links='';
+  chapters.forEach(function(c){
+    links+='<a href="#'+c.firstId+'" data-cap="'+c.firstNum+'"><span class="dnav-e">'+c.e+'</span> '+c.s+'</a>';
+  });
+  dnav.innerHTML=
+    '<div class="dnav-in">'
+    +'<a class="dnav-brand" href="#top"><span class="dnav-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#fff"/></svg></span>Domicura</a>'
+    +'<nav class="dnav-links">'+links+'</nav>'
+    +'<a class="dnav-cta" href="#top">↑ Inizio</a>'
+    +'</div><div class="dnav-progress"><i id="dnavBar"></i></div>';
+  document.body.insertBefore(dnav, document.body.firstChild.nextSibling);
+
+  /* ---------- header: ancora + box "in parole semplici" + indice ---------- */
+  const topbar=$('.topbar');
+  if(topbar){
+    topbar.id='top';
+    const anchor=topbar.querySelector('.hero-pills') || topbar.querySelector('h1');
+    const plain=document.createElement('div');
+    plain.className='plain fx';
+    plain.innerHTML='<div class="plain-h">💡 In parole semplici</div><p>Domicura porta a casa tua <b>infermieri, fisioterapisti e medici verificati</b>, semplice come chiamare un taxi. Qui sotto trovi ogni schermata dell’app e del sito, divisa per capitoli.</p>';
+    if(anchor && anchor.parentNode){ anchor.parentNode.insertBefore(plain, anchor.nextSibling); }
+
+    const toc=document.createElement('div');
+    toc.className='toc fx';
+    let cards='';
+    chapters.forEach(function(c,ci){
+      const end = (ci+1<chapters.length) ? chapters[ci+1].at : info.length;
+      let list='';
+      for(let i=c.at;i<end;i++){ if(info[i]) list+='<a href="#'+info[i].id+'"><b>'+info[i].num+'</b>'+info[i].title+'</a>'; }
+      cards+='<div class="toc-card"><div class="toc-emoji">'+c.e+'</div><div class="toc-k">'+c.k+'</div><div class="toc-t">'+c.t+'</div><div class="toc-list">'+list+'</div></div>';
+    });
+    toc.innerHTML=cards;
+    const legend=topbar.querySelector('.legend');
+    if(legend && legend.parentNode){ legend.parentNode.insertBefore(toc, legend.nextSibling); }
+    else topbar.appendChild(toc);
+  }
+
+  /* ---------- indice laterale a puntini ---------- */
+  const dots=document.createElement('div');
+  dots.className='sidedots';
+  const screenEmoji={'01':'🏠','02':'📱','03':'📍','04':'👨‍👩‍👧','05':'👩‍⚕️','06':'💊','07':'❤️','08':'💳','09':'⭐','10':'📋','11':'📊','12':'💬'};
+  let dotsHtml='';
+  info.forEach(function(s){ dotsHtml+='<a href="#'+s.id+'" data-num="'+s.num+'"><span>'+(screenEmoji[s.num]||'🩺')+'  '+s.num+' · '+s.title+'</span></a>'; });
+  dots.innerHTML=dotsHtml;
+  document.body.appendChild(dots);
+
+  /* ---------- emoji sanitaria su ogni titolo di schermata ---------- */
+  info.forEach(function(s){
+    const h2=s.sec.querySelector('.screen-meta h2');
+    if(h2 && !h2.dataset.emojID){ h2.dataset.emojID='1'; h2.insertAdjacentHTML('afterbegin','<span class="h2-emoji">'+(screenEmoji[s.num]||'🩺')+'</span> '); }
+  });
+
+  /* ---------- reveal allo scroll (con leggero stagger) ---------- */
+  $$('.screen-head').forEach(function(h){ h.classList.add('fx'); });
+  $$('section.screen, .chapter').forEach(function(sec){
+    $$('.fx', sec).forEach(function(el,i){ el.style.transitionDelay=(Math.min(i,6)*80)+'ms'; });
+  });
+  const reveal=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); reveal.unobserve(en.target); } });
+  },{threshold:.12, rootMargin:'0px 0px -6% 0px'});
+  $$('.fx').forEach(function(el){ reveal.observe(el); });
+
+  /* ---------- tilt 3D col puntatore ---------- */
+  const fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  function addTilt(el,max){
+    if(!fine) return;
+    el.addEventListener('pointermove',function(e){
+      const r=el.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-0.5;
+      const py=(e.clientY-r.top)/r.height-0.5;
+      el.style.transition='transform .1s ease';
+      el.style.transform='perspective(1600px) rotateY('+(px*max)+'deg) rotateX('+(-py*max)+'deg) translateY(-6px) scale(1.012)';
+    });
+    el.addEventListener('pointerleave',function(){
+      el.style.transition='transform .6s cubic-bezier(.2,.7,.2,1)';
+      el.style.transform='';
+    });
+  }
+  $$('.browser').forEach(function(el){ addTilt(el,5); });
+  $$('.phone').forEach(function(el){ addTilt(el,9); });
+
+  /* ---------- barra di progresso + link/puntini attivi ---------- */
+  const bar=$('#dnavBar');
+  let ticking=false;
+  function paintBar(){
+    ticking=false;
+    const h=document.documentElement;
+    const max=(h.scrollHeight-h.clientHeight)||1;
+    if(bar) bar.style.width=(h.scrollTop/max*100)+'%';
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(paintBar); } }
+  window.addEventListener('scroll',onScroll,{passive:true}); paintBar();
+
+  const navLinks=$$('.dnav-links a');
+  const dotLinks=$$('.sidedots a');
+  const active=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      const idx=info.findIndex(function(x){return x.sec===en.target;});
+      if(idx<0) return;
+      const cap=chapterForIndex(idx);
+      navLinks.forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-cap')===cap.firstNum); });
+      dotLinks.forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-num')===info[idx].num); });
+    });
+  },{threshold:.35, rootMargin:'-20% 0px -40% 0px'});
+  info.forEach(function(s){ active.observe(s.sec); });
+
+  /* ---------- FAQ interattive (con risposte in chiaro) ---------- */
+  const faq=info.length ? info[info.length-1].sec : null;
+  if(faq){
+    const answers=[
+      {k:/quanto costa/i, a:'Il Servizio Sanitario offre l’assistenza domiciliare (ADI) gratuitamente, ma con tempi di attivazione lunghi e su prescrizione. Domicura è un servizio privato immediato: paghi solo la singola prestazione, con prezzo chiaro già prima di prenotare. Molte prestazioni sono inoltre rimborsabili dal tuo fondo sanitario o dall’assicurazione.'},
+      {k:/in quanto tempo/i, a:'Per le richieste “Subito”, il professionista disponibile più vicino arriva mediamente entro 30 minuti. Per le prestazioni programmate scegli tu giorno e ora. In entrambi i casi segui in tempo reale la sua posizione e l’orario di arrivo stimato.'},
+      {k:/sempre lo stesso/i, a:'Sì. Dopo la prima prestazione puoi impostare “Scegli sempre lui/lei” e avrai priorità sulla sua agenda per le volte successive. È particolarmente utile nei percorsi di cura continuativi, dove avere sempre la stessa persona fa la differenza.'},
+      {k:/rimborsabili/i, a:'Nella maggior parte dei casi sì. Ricevi sempre una ricevuta fiscale automatica, valida per la richiesta di rimborso al tuo fondo sanitario integrativo o alla tua assicurazione (es. UniSalute, Generali Welion). Stiamo inoltre attivando convenzioni diritte con i principali operatori.'},
+      {k:/al sicuro/i, a:'Assolutamente. I dati sanitari sono trattati come “categoria speciale” secondo il GDPR: cifrati, accessibili solo a te e ai professionisti coinvolti nella cura, mai ceduti a terzi. Puoi esportarli o richiederne la cancellazione in qualsiasi momento.'}
+    ];
+    let first=true;
+    $$('div', faq).forEach(function(head){
+      const span=head.querySelector(':scope > span');
+      if(!span) return;
+      const mark=span.textContent.trim();
+      if(mark!=='+' && mark!=='−') return; // solo le righe-domanda
+      const row=head.parentElement;
+      head.classList.add('faq-head');
+      const q=head.textContent.replace(/[+−]/g,'').trim();
+      let ans=head.nextElementSibling;
+      if(ans && ans.tagName==='P'){
+        ans.classList.add('faq-ans');
+      }else{
+        const found=answers.find(function(x){return x.k.test(q);});
+        ans=document.createElement('div');
+        ans.className='faq-ans';
+        ans.textContent=found?found.a:'';
+        head.parentNode.insertBefore(ans, head.nextSibling);
+      }
+      if(first){ row.classList.add('faq-open'); span.textContent='−'; first=false; }
+      else{ span.textContent='+'; }
+      head.addEventListener('click',function(){
+        const open=row.classList.toggle('faq-open');
+        span.textContent=open?'−':'+';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
